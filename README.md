@@ -106,6 +106,27 @@ O projeto segue os princípios SOLID, separando responsabilidades em:
 - Notifications: eventos via ActiveSupport::Notifications (ex: log de criação de livro)
 - Controllers: orquestram o fluxo, mantendo-se leves
 
+## Justificativa Arquitetural e de Boas Práticas (Conceitos Utilizados)
+A estruturação do projeto utilizou de forma intencional e fundamentada conceitos consagrados em engenharia de software, visando a facilidade de manutenção, evolução, testabilidade e escalabilidade do sistema ao longo do tempo. A seguir, detalham-se os principais elementos arquiteturais aplicados e os benefícios práticos de cada escolha:
+
+## Service Objects
+A utilização de Service Objects permite a centralização da lógica de negócio em classes próprias, isolando-a do controller e do model. Isso reduz o acoplamento entre componentes, facilita a realização de testes unitários e minimiza os impactos de alterações futuras, pois a regra de negócio passa a residir em um ponto único, facilmente localizável e extensível.
+
+## Form Objects
+Os Form Objects agregam todas as validações de dados de entrada em estruturas independentes dos modelos ActiveRecord. Esse padrão contribui para a coesão do código e para a prevenção de duplicidade de validações, além de permitir maior flexibilidade na manipulação de regras que possam variar conforme o contexto do input. O resultado é uma camada de validação clara, reutilizável e facilmente adaptável a mudanças.
+
+## Presenters
+A aplicação do padrão Presenter tem como objetivo separar a lógica de apresentação dos dados da lógica de domínio. Com isso, a formatação das respostas JSON para a API torna-se mais flexível e menos suscetível a alterações indesejadas em regras de negócio. Este padrão também facilita o atendimento a diferentes clientes e formatos de saída no futuro, com baixíssimo impacto sobre o restante do sistema.
+
+## ActiveSupport::Notifications
+O uso desse mecanismo de notificações desacopla operações de monitoramento, auditoria e logging das regras principais do sistema, tornando possível incluir novos pontos de observabilidade ou integração com sistemas externos sem modificar o núcleo do código de negócio. Isso reduz riscos e custos de manutenção, aumentando a capacidade de evolução do sistema.
+
+## Devise & Devise-JWT (Autenticação por Token)
+O uso de soluções maduras para autenticação provê segurança reconhecida e reduz vulnerabilidades, além de acelerar o desenvolvimento. A escolha por autenticação via JWT torna o sistema stateless, o que facilita a escalabilidade horizontal da aplicação e a integração com diferentes consumidores (web, mobile, etc.), além de simplificar a manutenção por evitar problemas clássicos de sessão e cookies em APIs RESTful.
+
+## Separação de Pastas e Organização do Código
+A disposição do código-fonte em pastas específicas para services, forms e presenters contribui diretamente para a legibilidade, previsibilidade e facilidade de onboarding de novos desenvolvedores, além de proporcionar maior controle e segurança em refatorações e expansões do sistema.
+
 
 ## 🏗️ Teste rápido
 Cadastre um usuário
