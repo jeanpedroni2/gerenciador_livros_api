@@ -60,19 +60,8 @@ API RESTful construída em Ruby on Rails, com autenticação JWT usando Devise +
 git clone https://github.com/jeanpedroni2/gerenciador_livros_api.git
 cd gerenciador_livros_api
 
-Se estiver usando a IDE VS Code, instale a extensão no gerenciador de pacotes "NuGet"
-  Dev Containers from Microsoft - microsoft.com
-
-# Instale as dependências
-bundle install
-
-# Crie e migre o banco
-rails db:create db:migrate
-
-# (Opcional) Insira suas credenciais do JWT
-EDITOR="code --wait" rails credentials:edit
-# Adicione:
-# devise_jwt_secret_key: sua_chave_jwt_gerada
+# abra o VSCode
+# Inicie o projeto dentro do dev container
 
 # Rode o servidor
 rails s
