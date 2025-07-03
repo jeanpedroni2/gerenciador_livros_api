@@ -1,4 +1,6 @@
-# 📚 Gerenciador de Livros - API
+Aluno: Jean Delamare Pedroni   Email: jean.pedroni@hotmail.com / pedroni01@gmail.com
+
+## 📚 Gerenciador de Livros - API
 
 API RESTful construída em Ruby on Rails, com autenticação JWT usando Devise + Devise-JWT, seguindo arquitetura limpa (SOLID) com Service Objects, Form Objects e Presenters, embutido em um devcontainer.
 
